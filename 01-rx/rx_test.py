@@ -448,7 +448,7 @@ class TxCmdBuff:
         self.data[OPCODE_INDEX] = COMMON_NACK_OPCODE
       elif rx_cmd_buff.data[OPCODE_INDEX] == APP_SET_TIME_OPCODE:
         self.data[MSG_LEN_INDEX] = 0x06
-        self.data[OPCODE_INDEX] = COMMON_NACK_OPCODE
+        self.data[OPCODE_INDEX] = COMMON_ACK_OPCODE
       elif rx_cmd_buff.data[OPCODE_INDEX] == APP_TELEM_OPCODE:
         self.data[MSG_LEN_INDEX] = 0x06
         self.data[OPCODE_INDEX] = COMMON_NACK_OPCODE
@@ -527,7 +527,7 @@ while cmd_count<12:
   while byte_i < tx_cmd_buff.get_byte_count():
     serial_port.write(tx_cmd_buff.data[byte_i].to_bytes(1, byteorder='big'))
     byte_i += 1
-  print('rxcmd: '+str(rx_cmd_buff)+'\n')
+  print('rxcmd: '+str(rx_cmd_buff))
   print('reply: '+str(tx_cmd_buff)+'\n')
   rx_cmd_buff.clear()
   tx_cmd_buff.clear()
