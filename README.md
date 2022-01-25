@@ -5,8 +5,8 @@ This repository provides ground support for the Tartan Artibeus satellite.
 ## Directory Contents
 
 * [00-setup](00-setup/README.md): Setup scripts
-* [01-tx](01-tx/README.md): Testbed transmitter script
-* [02-rx](01-rx/README.md): Testbed receiver script
+* [01-rx](01-rx/README.md): Testbed receiver script
+* [02-tx](02-tx/README.md): Testbed transmitter script
 * [README.md](README.md): This document
 
 ## Software Setup
@@ -131,6 +131,16 @@ deactivate
 ```
 
 **Ensure that the power supply is turned OFF.**
+
+## Manifest
+
+* Testbed, including two mounted radio boards
+* A tiny breadboard, two u.FL antenna, and jumper wires
+* Two FTDI cables with jumper wires attached
+* A primary radio board and a secondary, backup radio board
+* Two spare FTDI cables
+* Spare antenna (u.FL and SMA)
+* A CC-Debugger
 
 ## License
 
