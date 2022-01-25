@@ -14,7 +14,7 @@ source ../p3-env/bin/activate
 Usage:
 
 ```bash
-cd $HOME/git-repos/tartan-artibeus-ground-support/02-rx/
+cd $HOME/git-repos/tartan-artibeus-ground-support/01-rx/
 python3 rx_test.py /dev/ttyUSB0
 ```
 

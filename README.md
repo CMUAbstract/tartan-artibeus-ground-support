@@ -7,6 +7,7 @@ This repository provides ground support for the Tartan Artibeus satellite.
 * [00-setup](00-setup/README.md): Setup scripts
 * [01-rx](01-rx/README.md): Testbed receiver script
 * [02-tx](02-tx/README.md): Testbed transmitter script
+* [images](images/README.md): Repository images
 * [README.md](README.md): This document
 
 ## Software Setup
