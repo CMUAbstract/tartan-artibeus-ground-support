@@ -349,13 +349,12 @@ class RxCmdBuff:
     self.raw = []
 
   def dump_raw(self):
-    print("Raw contents:")
+    print("Raw contents:",end='')
     for elem in self.raw:
       print(hex(elem),end=',')
-    print(".")
+    print("")
 
   def has_raw(self):
-    print(self.end_index,len(self.raw))
     if self.end_index != len(self.raw):
       return True
     else:
@@ -535,6 +534,7 @@ rx_cmd_buff = RxCmdBuff()
 
 # 1. Basic test
 for i in range(0,5):
+  serial_port.flushOutput()
   cmd = TxCmd(COMMON_ACK_OPCODE, HWID, msgid, SRC, DST)
   byte_i = 0
   # Transmit
@@ -542,6 +542,8 @@ for i in range(0,5):
     serial_port.write(cmd.data[byte_i].to_bytes(1, byteorder='big'))
     byte_i += 1
   print("Done transmit")
+  # Delay to clear serial buffer
+  serial_port.flushInput()
   # Clean switch over to receive
   start_time = time.time()
   while rx_cmd_buff.state != RxCmdBuffState.COMPLETE:
@@ -566,14 +568,15 @@ for i in range(0,5):
       break
   # If we terminated the packet early or have extra bytes
   if rx_cmd_buff.has_raw():
+    print('txcmd: '+str(cmd))
+    print('Incorrectly formatted pack received--',end='')
     rx_cmd_buff.dump_raw()
     rx_cmd_buff.clear_raw()
   elif rx_cmd_buff.end_index > 0:
     print('txcmd: '+str(cmd))
     print('reply: '+str(rx_cmd_buff)+'\n')
-  print("Clearing")
   cmd.clear()
   rx_cmd_buff.clear()
   msgid += 1
-  time.sleep(5.0)
+  time.sleep(1.0)
 
