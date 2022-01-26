@@ -143,9 +143,30 @@ deactivate
 * Spare antenna (u.FL and SMA)
 * A CC-Debugger
 
+## Communicating with TA-1
+
+1. To communicate with Artibeus, connect a radio board to power, ground and an
+FTDI cable connected to a well grounded computer as described above.  We
+recommend closing any terminals open from the testbed test to avoid confusion.
+
+2. Attach the radio board to the ground station antenna output via the u.FL
+connector.
+
+3. In a terminal, execute the following commands. **Substitute the appropriate
+device name**In a terminal, execute the following commands. **Substitute the
+appropriate device name.**
+```bash
+cd $HOME/git-repos/tartan-artibeus-ground-support/01-rx/
+source ../p3-env/bin/activate
+python3 ack_test.py /dev/ttyUSB0
+```
+
+The terminal will display the results of 5 attempts to "ack" TA-1.  Each command
+will timeout if it does not receive a reply within 15 seconds.
+
 ## License
 
 Written by Bradley Denby  
-Other contributors: None
+Other contributors: Emily Ruppel
 
 See the top-level LICENSE file for the license.

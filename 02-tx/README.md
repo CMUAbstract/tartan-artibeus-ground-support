@@ -31,7 +31,7 @@ deactivate
 
 ## License
 
-Written by Bradley Denby  
-Other contributors: None
+Written by Bradley Denby
+Other contributors: Emily Ruppel
 
 See the top-level LICENSE file for the license.
