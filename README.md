@@ -109,7 +109,7 @@ source ../p3-env/bin/activate
 python3 rx_test.py /dev/ttyUSB0
 ```
 
-6. In the TX Terminal, execute the following commands. **Substitute the
+7. In the TX Terminal, execute the following commands. **Substitute the
    appropriate TX Terminal device name.**
 ```bash
 cd $HOME/git-repos/tartan-artibeus-ground-support/02-tx/
